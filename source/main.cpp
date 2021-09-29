@@ -6,7 +6,7 @@
 
 using namespace std;
 
-// DeclaraciÛn de funciones
+// Declaraci√≥n de funciones
 double euclidean_distance(vector<int>, vector<int>);
 
 // Variables globales
@@ -14,18 +14,18 @@ int dimensions = 2; // Dimensiones de cada punto, cambiar por 2, 5, 10, 15, 20, 
 
 int main() {
 
-    // InicializaciÛn de las variables y la uniform int distribution
+    // Inicializaci√≥n de las variables y la distribucion uniforme
 
     random_device rd;       // Semilla del aleatorio
     mt19937 gen(rd());      // Semilla del aleatorio
-    int rand_min = 1;       // Valor mÌnimo del aleatorio
-    int rand_max = 1000;    // Valor m·ximo del aleatorio
-    int n_points = 20000;   // N˙mero de puntos generados
+    int rand_min = 1;       // Valor m√≠nimo del aleatorio
+    int rand_max = 1000;    // Valor m√°ximo del aleatorio
+    int n_points = 20000;   // N√∫mero de puntos generados
     uniform_int_distribution<> distrib(rand_min, rand_max); // Generador de aleatorios
     vector<vector<int>> mat_points; // Vector de los puntos generados
 
 
-    // Inicio del cronometro
+    // Inicio del temporizador
 
     std::chrono::time_point<std::chrono::high_resolution_clock> start, end;
     start = std::chrono::high_resolution_clock::now();
@@ -42,12 +42,12 @@ int main() {
     }
 
 
-    // Calcular distancias euclidianas y la distancia m·xima y mÌnima
+    // Calcular distancias euclidianas y la distancia m√°xima y m√≠nima
 
-    vector<int> selector = mat_points[n_points / 2]; // Punto seleccionado del medio para calcular sus distancias con los dem·s
+    vector<int> selector = mat_points[n_points / 2]; // Punto seleccionado del medio para calcular sus distancias con los dem√°s
     vector<double> distances;   // Vector de distancias
-    double min;                 // Elemento mÌnimo
-    double max;                 // Elemento m·ximo
+    double min;                 // Elemento m√≠nimo
+    double max;                 // Elemento m√°ximo
     for (int i = 0; i < mat_points.size(); ++i) {
         double distance = euclidean_distance(selector, mat_points[i]); // Distancia Euclidiana
         distances.push_back(distance);
@@ -75,11 +75,11 @@ int main() {
     }
 
 
-    // Fin del cronÛmetro
+    // Fin del temporizador
 
     end = std::chrono::high_resolution_clock::now();
     int64_t duration = std::chrono::duration_cast<std::chrono::milliseconds>(
-        end - start).count(); // duration is holding the elapsed time
+        end - start).count();
 
 
 // Imprimir resultado
@@ -94,7 +94,7 @@ int main() {
 }
 // Fin del main
 
-//FunciÛn distancia Euclidiana
+//Funci√≥n distancia Euclidiana
 double euclidean_distance(vector<int> selector, vector<int> temp) {
     double distance = 0;
     for (int j = 0; j < dimensions; ++j) {
